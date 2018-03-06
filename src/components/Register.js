@@ -35,7 +35,7 @@ class RegistrationForm extends React.Component {
     }
     handleConfirmBlur = (e) => {
         const value = e.target.value;
-        this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+        this.setState({ confirmDirty: this.state.confirmDirty || !!value }); // !! transforms a value to boolean
     }
     checkPassword = (rule, value, callback) => {
         const form = this.props.form;
@@ -48,7 +48,8 @@ class RegistrationForm extends React.Component {
     checkConfirm = (rule, value, callback) => {
         const form = this.props.form;
         if (value && this.state.confirmDirty) {
-            form.validateFields(['confirm'], { force: true });
+            form.validateFields(['confirm'], { force: true }); // Should validate validated field again when validateTrigger is been triggered again.
+            //Validate comfirm again after user changes password.
         }
         callback();
     }
@@ -57,11 +58,11 @@ class RegistrationForm extends React.Component {
         const { getFieldDecorator } = this.props.form;
 
         const formItemLayout = {
-            labelCol: {
+            labelCol: { // The layout of label.
                 xs: { span: 24 },
                 sm: { span: 6 },
             },
-            wrapperCol: {
+            wrapperCol: { // The layout for input controls.
                 xs: { span: 24 },
                 sm: { span: 14 },
             },
@@ -84,7 +85,7 @@ class RegistrationForm extends React.Component {
                 <FormItem
                     {...formItemLayout}
                     label="Username"
-                    hasFeedback
+                    hasFeedback //Used with validateStatus, this option specifies the validation status icon. 
                 >
                     {getFieldDecorator('username', {
                         rules: [{ required: true, message: 'Please input your username!', whitespace: true }],
@@ -119,7 +120,7 @@ class RegistrationForm extends React.Component {
                             validator: this.checkPassword,
                         }],
                     })(
-                        <Input type="password" onBlur={this.handleConfirmBlur} />
+                        <Input type="password" onBlur={this.handleConfirmBlur} /> // Execute when a user leaves an input field.
                     )}
                 </FormItem>
                 <FormItem {...tailFormItemLayout}>
