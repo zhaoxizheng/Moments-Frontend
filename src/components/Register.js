@@ -24,7 +24,7 @@ class RegistrationForm extends React.Component {
                     })
                 }).then((response) => {
                     message.success(response);
-                    this.props.history.push("/login"); // If you want to navigate to other link outside the render method, use history.push. 
+                    this.props.history.push("/login"); // If you want to navigate to other link outside of the render method, use history.push. 
                 }, (error) => {
                     message.error(error.responseText);
                 }).catch((error) => {
