@@ -9,7 +9,7 @@ class CreatePostForm extends React.Component {
         if (Array.isArray(e)) {
             return e;
         }
-        return e && e.fileList;
+        return e && e.fileList; // return the second if the first exists.
     }
 
     beforeUpload = () => {
