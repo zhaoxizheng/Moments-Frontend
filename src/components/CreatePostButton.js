@@ -21,9 +21,7 @@ export class CreatePostButton extends React.Component {
     }
     handleOk = () => {
         const form = this.form.getWrappedForm();
-        form.validateFields((err, values) => {
-
-        });
+     
         form.validateFields((err, values) => {
             if (err) { return; }
             console.log('Received values of form: ', values);
@@ -31,7 +29,7 @@ export class CreatePostButton extends React.Component {
             // prepare formData
             const { lat, lon } = JSON.parse(localStorage.getItem(POS_KEY));
             const formData = new FormData();
-            formData.set('lat', lat + Math.random() * LOC_SHAKE * 2 - LOC_SHAKE);
+            formData.set('lat', lat + Math.random() * LOC_SHAKE * 2 - LOC_SHAKE); // HTML5 uses wifi router, cell phone tower and other methods to pinpoint your location. 
             formData.set('lon', lon + Math.random() * LOC_SHAKE * 2 - LOC_SHAKE);
             formData.set('message', form.getFieldValue('message'));
             formData.set('image', form.getFieldValue('image')[0]);
