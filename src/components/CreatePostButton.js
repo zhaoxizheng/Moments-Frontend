@@ -85,6 +85,11 @@ export class CreatePostButton extends React.Component {
                        onCancel={this.handleCancel}
                        cancelText="Cancel"
                 >
+                    // From React ref :
+                    // In rare cases, you might want to have access to a child’s DOM node from a parent component. 
+                    // While you could add a ref to the child component, this is not an ideal solution, as you would only get a component instance rather than a DOM node. 
+                    // Additionally, this wouldn’t work with functional components.
+                    // Instead, in such cases we recommend exposing a special prop on the child. The child would take a function prop with an arbitrary name (e.g. inputRef) and attach it to the DOM node as a ref attribute. 
                     <WrappedCreatePostForm wrappedComponentRef={this.saveFormRef}/>
                 </Modal>
             </div>
