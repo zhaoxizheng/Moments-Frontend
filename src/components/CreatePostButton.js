@@ -36,7 +36,8 @@ export class CreatePostButton extends React.Component {
 
             // show loading on create button
             this.setState({ confirmLoading: true });
-            // send request
+            // Reference : https://stackoverflow.com/questions/5392344/sending-multipart-formdata-with-jquery-ajax
+            // Using multipart/form-data
             $.ajax({
                 method: 'POST',
                 url: `${API_ROOT}/post`,
