@@ -17,6 +17,7 @@ class AroundMap extends React.Component {
         if (center && bounds) {
             const ne = bounds.getNorthEast();
             const right = new google.maps.LatLng(center.lat(), ne.lng());
+            // 0.000621371192 is meter to mile calcution
             return 0.000621371192 * google.maps.geometry.spherical.computeDistanceBetween(center, right);
         }
     }
