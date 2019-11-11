@@ -65,5 +65,5 @@ class CreatePostForm extends React.Component {
         );
     }
 }
-
+// Decorated by Form.create() will be automatically set this.props.form property
 export const WrappedCreatePostForm = Form.create()(CreatePostForm);
